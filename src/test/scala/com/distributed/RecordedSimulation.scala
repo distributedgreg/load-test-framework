@@ -1,10 +1,7 @@
 package com.distributed
 
-import scala.concurrent.duration._
-
-import io.gatling.core.Predef._
-import io.gatling.http.Predef._
-import io.gatling.jdbc.Predef._
+import io.gatling.core.Predef.*
+import io.gatling.http.Predef.*
 
 class RecordedSimulation extends Simulation {
 
@@ -60,11 +57,10 @@ class RecordedSimulation extends Simulation {
 			.get("/gw")
 			.headers(headers_0)
 			.resources(http("request_1")
-			.get("/gw/pages/intro.html")
-			.headers(headers_1),
-            http("request_2")
-			.get("/gw/assets/img/gamma_world_cover.png")
-			.headers(headers_2)))
+				.get("/gw/pages/intro.html")
+				.headers(headers_1), http("request_2")
+				.get("/gw/assets/img/gamma_world_cover.png")
+				.headers(headers_2)))
 		.pause(6)
 		.exec(http("request_3")
 			.get("/gw/pages/rolldice.html?t=1726675222012")
